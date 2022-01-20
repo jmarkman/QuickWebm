@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickWebm", "QuickWebm\QuickWebm.csproj", "{703E15C4-157A-4833-A535-EB00E56EFC2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{703E15C4-157A-4833-A535-EB00E56EFC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703E15C4-157A-4833-A535-EB00E56EFC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703E15C4-157A-4833-A535-EB00E56EFC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703E15C4-157A-4833-A535-EB00E56EFC2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFFD4183-DF85-499F-BAFE-5239F7A42AF2}
+	EndGlobalSection
+EndGlobal
