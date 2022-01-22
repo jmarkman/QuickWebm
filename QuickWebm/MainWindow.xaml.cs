@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace QuickWebm
 {
@@ -23,6 +13,36 @@ namespace QuickWebm
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BrowseForInputFile_OnClick(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Video files (*.mp4;*.avi;*.mkv)|*.mp4;*.avi;*.mkv",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                InputTextBox.Text = dialog.FileName;
+                InputTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
+        }
+
+        private void BrowseForOutputFolder_OnClick(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog()
+            {
+                DefaultExt = ".webm",
+                Filter = "Webm files (*.webm)|*.webm"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                OutputTextBox.Text = dialog.FileName;
+                OutputTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
         }
     }
 }
