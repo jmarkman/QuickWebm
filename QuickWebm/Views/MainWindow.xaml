@@ -4,19 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuickWebm"
+        xmlns:childViews="clr-namespace:QuickWebm.Views"
+        xmlns:viewModel="clr-namespace:QuickWebm.ViewModels"
         xmlns:converters="clr-namespace:QuickWebm.Converters"
         mc:Ignorable="d"
         Title="QuickWebm" Height="450" Width="800">
     <Window.DataContext>
-        <local:QuickWebmConverterViewModel />
+        <viewModel:QuickWebmConverterViewModel />
     </Window.DataContext>
     <Window.Resources>
         <converters:InvertBooleanConverter x:Key="InvertBooleanConveter"/>
+        <childViews:VideoEffectsView x:Key="VideoEffectsView"/>
+        <childViews:WebmEncodingView x:Key="WebmEncodingView"/>
+        <childViews:AdvancedOptionsView x:Key="AdvancedOptionsView"/>
     </Window.Resources>
     <Grid>
         <!--#region Body-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -74,17 +78,11 @@
         
         <!--#region Tools and Options -->
         <Grid Grid.Row="1" Margin="10">
-            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Effects" Margin="30 0 30 0"/>
-                <Button Content="Encoding" Margin="30 0 30 0"/>
-                <Button Content="Advanced" Margin="30 0 30 0"/>
-            </StackPanel>-->
-        </Grid>
-        <!--#endregion-->
-        
-        <!--#region Content of Tools/Options-->
-        <Grid Grid.Row="2">
-            
+            <TabControl>
+                <TabItem x:Name="WebmEffects" Header="Video Effects" Content="{StaticResource VideoEffectsView}"/>
+                <TabItem x:Name="WebmEncoding" Header="Webm Encoding" Content="{StaticResource WebmEncodingView}"/>
+                <TabItem x:Name="WebmAdvanced" Header="Advanced Options" Content="{StaticResource AdvancedOptionsView}"/>
+            </TabControl>
         </Grid>
         <!--#endregion-->
     </Grid>
