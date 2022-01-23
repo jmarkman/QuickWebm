@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.windowsapicodepack-shell" Version="1.1.0" />
+    <Folder Include="Binaries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xffmpeg.net" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Binaries\ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

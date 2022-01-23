@@ -19,7 +19,7 @@ namespace QuickWebm
         {
             var dialog = new OpenFileDialog
             {
-                Filter = "Video files (*.mp4;*.avi;*.mkv)|*.mp4;*.avi;*.mkv",
+                Filter = "Video files (*.mp4;*.avi;*.mkv;*.m4v)|*.mp4;*.avi;*.mkv;*.m4v",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)
             };
 
