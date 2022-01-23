@@ -72,16 +72,18 @@ namespace QuickWebm
             }
         }
 
+        /// <summary>
+        /// Status indicator for whether or not the applicaiton is performing a video conversion.
+        /// </summary>
         public bool BusyConverting 
         { 
-            get { return !busyConverting; }
+            get { return busyConverting; }
             set
             {
                 busyConverting = value;
                 OnPropertyChanged(nameof(BusyConverting));
             }
         }
-
 
         public AsyncCommand ConvertCommand { get; private set; }
         #endregion
