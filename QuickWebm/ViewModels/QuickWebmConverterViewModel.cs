@@ -85,6 +85,10 @@ namespace QuickWebm.ViewModels
             }
         }
 
+        public WebmEncodingViewModel Encoding { get; set; }
+
+        public AdvancedOptionsViewModel AdvancedOptions { get; set; }
+
         public AsyncCommand ConvertCommand { get; private set; }
         #endregion
 
@@ -92,6 +96,9 @@ namespace QuickWebm.ViewModels
         {
             ffmpegPath = Path.Combine(Environment.CurrentDirectory, "Binaries", "ffmpeg.exe");
             ConvertCommand = new AsyncCommand(ConvertToWebm, ConvertEnabled);
+
+            Encoding = new WebmEncodingViewModel();
+            AdvancedOptions = new AdvancedOptionsViewModel();
         }
 
         public async Task ConvertToWebm()
@@ -100,13 +107,21 @@ namespace QuickWebm.ViewModels
             var outputFile = new OutputFile(OutputFilePath);
             var cancelToken = new CancellationTokenSource().Token;
 
+            var conversionOptions = new ConversionOptions()
+            {
+                AudioBitRate = Encoding.AudioBitrate,
+                RemoveAudio = Encoding.EnableAudio,
+                VideoBitRate = Encoding.VideoBitrate,
+                VideoFormat = FFmpeg.NET.Enums.VideoFormat.webm
+            };
+
             var ffmpeg = new Engine(ffmpegPath);
             BusyConverting = true;
 
             ffmpeg.Progress += OnProgress;
             ffmpeg.Complete += OnComplete;
 
-            await ffmpeg.ConvertAsync(inputFile, outputFile, cancelToken);
+            await ffmpeg.ConvertAsync(inputFile, outputFile, conversionOptions, cancelToken);
         }
 
         private void OnComplete(object? sender, ConversionCompleteEventArgs e)

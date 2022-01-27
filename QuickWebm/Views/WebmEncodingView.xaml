@@ -26,7 +26,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Content="Description:" VerticalAlignment="Center" />
-                <TextBox Grid.Row="0" Grid.Column="1" x:Name="WebmDescription" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="WebmDescription" HorizontalAlignment="Stretch" VerticalAlignment="Center" Text="{Binding Description}" />
             </Grid>
         </GroupBox>
 
@@ -54,21 +54,21 @@
                 </StackPanel>
 
                 <Label Grid.Row="1" Grid.Column="0" Content="2 Pass Encoding:" VerticalAlignment="Center" />
-                <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding TwoPassEncoding}" />
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Size Limit:" VerticalAlignment="Center" />
-                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" />
+                <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SizeLimit}" />
                 <Label Grid.Row="2" Grid.Column="2" Content="MB" VerticalAlignment="Center" />
 
                 <Label Grid.Row="3" Grid.Column="0" Content="Video Bitrate:" VerticalAlignment="Center" />
-                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" />
+                <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding VideoBitrate}" />
                 <Label Grid.Row="3" Grid.Column="2" Content="kb/s" VerticalAlignment="Center" />
 
                 <Label Grid.Row="4" Grid.Column="0" Content="Enable Audio:" />
-                <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" />
+                <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsChecked="{Binding EnableAudio}" />
 
                 <Label Grid.Row="5" Grid.Column="0" Content="Audio Bitrate:" VerticalAlignment="Center" />
-                <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" />
+                <TextBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Text="{Binding AudioBitrate}" />
                 <Label Grid.Row="5" Grid.Column="2" Content="kb/s" VerticalAlignment="Center" />
             </Grid>
         </GroupBox>
