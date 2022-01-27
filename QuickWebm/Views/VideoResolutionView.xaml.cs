@@ -1,5 +1,4 @@
-﻿using QuickWebm.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace QuickWebm.Views
 {
     /// <summary>
-    /// Interaction logic for VideoEffectsView.xaml
+    /// Interaction logic for VideoResolutionView.xaml
     /// </summary>
-    public partial class VideoEffectsView : UserControl
+    public partial class VideoResolutionView : Window
     {
-        public VideoEffectsView(VideoEffectsViewModel vm)
+        public VideoResolutionView()
         {
             InitializeComponent();
-            DataContext = vm;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using QuickWebm.ViewModels;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,9 +11,10 @@ namespace QuickWebm
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(QuickWebmConverterViewModel vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
         private void BrowseForInputFile_OnClick(object sender, EventArgs e)

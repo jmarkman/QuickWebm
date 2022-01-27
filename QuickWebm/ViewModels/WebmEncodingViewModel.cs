@@ -1,4 +1,6 @@
-﻿namespace QuickWebm.ViewModels
+﻿using QuickWebm.Services;
+
+namespace QuickWebm.ViewModels
 {
     public class WebmEncodingViewModel : ViewModelBase
     {
