@@ -1,6 +1,7 @@
 ﻿using FFmpeg.NET;
 using FFmpeg.NET.Events;
 using QuickWebm.Commands;
+using QuickWebm.Services;
 using System;
 using System.IO;
 using System.Threading;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuickWebm.ViewModels
 {
-    internal class QuickWebmConverterViewModel : ViewModelBase
+    public class QuickWebmConverterViewModel : ViewModelBase
     {
         #region Properties
         private string inputFilePath;
@@ -90,9 +91,10 @@ namespace QuickWebm.ViewModels
         public AdvancedOptionsViewModel AdvancedOptions { get; set; }
 
         public AsyncCommand ConvertCommand { get; private set; }
+
         #endregion
 
-        public QuickWebmConverterViewModel()
+        public QuickWebmConverterViewModel(IDialogService dialogService)
         {
             ffmpegPath = Path.Combine(Environment.CurrentDirectory, "Binaries", "ffmpeg.exe");
             ConvertCommand = new AsyncCommand(ConvertToWebm, ConvertEnabled);
