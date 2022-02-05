@@ -90,6 +90,8 @@ namespace QuickWebm.ViewModels
 
         public AdvancedOptionsViewModel AdvancedOptions { get; set; }
 
+        public VideoEffectsViewModel VideoEffects { get; set; }
+
         public AsyncCommand ConvertCommand { get; private set; }
 
         #endregion
@@ -101,6 +103,7 @@ namespace QuickWebm.ViewModels
 
             Encoding = new WebmEncodingViewModel();
             AdvancedOptions = new AdvancedOptionsViewModel();
+            VideoEffects = new VideoEffectsViewModel(dialogService);
         }
 
         public async Task ConvertToWebm()

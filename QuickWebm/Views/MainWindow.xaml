@@ -76,9 +76,9 @@
         <!--#region Tools and Options -->
         <Grid Grid.Row="1" Margin="10">
             <TabControl>
-                <TabItem x:Name="WebmEffects" Header="Video Effects" Content="{StaticResource VideoEffectsView}"/>
-                <TabItem x:Name="WebmEncoding" Header="Webm Encoding" Content="{StaticResource WebmEncodingView}"/>
-                <TabItem x:Name="WebmAdvanced" Header="Advanced Options" Content="{StaticResource AdvancedOptionsView}"/>
+                <TabItem x:Name="WebmEffects" Header="Video Effects" DataContext="{Binding VideoEffects}" Content="{StaticResource VideoEffectsView}"/>
+                <TabItem x:Name="WebmEncoding" Header="Webm Encoding" DataContext="{Binding Encoding}" Content="{StaticResource WebmEncodingView}"/>
+                <TabItem x:Name="WebmAdvanced" Header="Advanced Options" DataContext="{Binding AdvancedOptions}" Content="{StaticResource AdvancedOptionsView}"/>
             </TabControl>
         </Grid>
         <!--#endregion-->
