@@ -5,10 +5,11 @@
         #region Properties
         private string description;
         private bool twoPassEncoding;
-        private int sizeLimit;
-        private int videoBitrate;
         private bool enableAudio;
-        private int audioBitrate;
+        private bool? useConstantBitRate;
+        private int? sizeLimit;
+        private int? videoBitrate;
+        private int? audioBitrate;
 
         public string Description
         {
@@ -17,6 +18,16 @@
             { 
                 description = value; 
                 OnPropertyChanged(nameof(Description));
+            }
+        }
+
+        public bool? UseConstantBitRate
+        {
+            get { return useConstantBitRate; }
+            set 
+            { 
+                useConstantBitRate = value; 
+                OnPropertyChanged(nameof(UseConstantBitRate));
             }
         }
 
@@ -30,7 +41,7 @@
             }
         }
 
-        public int SizeLimit
+        public int? SizeLimit
         {
             get { return sizeLimit; }
             set 
@@ -40,7 +51,7 @@
             }
         }
 
-        public int VideoBitrate
+        public int? VideoBitrate
         {
             get { return videoBitrate; }
             set 
@@ -60,7 +71,7 @@
             }
         }
 
-        public int AudioBitrate
+        public int? AudioBitrate
         {
             get { return audioBitrate; }
             set 

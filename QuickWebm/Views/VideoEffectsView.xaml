@@ -8,6 +8,43 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Command="{Binding ShowVideoResolutionCommand}" Content="Resize" />
+        <!--
+            Remove grip (three dots) and overflow (dropdown)
+            https://stackoverflow.com/a/57246041/ 
+        -->
+        <ToolBar>
+            <ToolBar.Style>
+                <Style TargetType="ToolBar">
+                    <Setter Property="ToolBarTray.IsLocked" Value="True" />
+                    <Setter Property="OverflowMode" Value="Never"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ToolBar}">
+                                <ToolBarPanel IsItemsHost="True" Background="Transparent"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ToolBar.Style>
+            <Button Content="Trim"
+                    Padding="5"
+                    Command="{Binding }"
+                    ToolTip="Adjust the start and end time of your video" />
+            
+            <Button Content="Resize"
+                    Padding="5"
+                    Command="{Binding ShowVideoResolutionCommand}"
+                    ToolTip="Adjust the resolution of your video" />
+            
+            <Button Content="Crop"
+                    Padding="5"
+                    Command="{Binding }"
+                    ToolTip="Crop to a specific screen section of your video" />
+            
+            <Button Content="Playback speed"
+                    Padding="5"
+                    Command="{Binding }"
+                    ToolTip="Make your video clip play faster or slower" />
+        </ToolBar>
     </Grid>
 </UserControl>
