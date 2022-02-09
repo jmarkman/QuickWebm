@@ -33,18 +33,13 @@ namespace QuickWebm
         {
             var serviceCollection = new ServiceCollection();
 
+            serviceCollection.AddSingleton<IDialogService, DialogService>();
             serviceCollection.AddSingleton<QuickWebmConverterViewModel>();
+
             serviceCollection.AddSingleton(svc => new MainWindow()
             {
                 DataContext = svc.GetRequiredService<QuickWebmConverterViewModel>()
             });
-            serviceCollection.AddSingleton(svc => new VideoEffectsView()
-            {
-                DataContext = svc.GetRequiredService<VideoEffectsViewModel>()
-            });
-            serviceCollection.AddSingleton<WebmEncodingViewModel>();
-            serviceCollection.AddSingleton<AdvancedOptionsViewModel>();
-            serviceCollection.AddSingleton<IDialogService, DialogService>();
 
             return serviceCollection.BuildServiceProvider();
         }

@@ -10,8 +10,8 @@ namespace QuickWebm.ViewModels
 
         public VideoEffectsViewModel(IDialogService dialogService)
         {
-            ShowVideoResolutionCommand = new RelayCommand(ShowVideoResolutionWindow);
             DialogService = dialogService;
+            ShowVideoResolutionCommand = new RelayCommand(ShowVideoResolutionWindow);
         }
 
         private void ShowVideoResolutionWindow()
